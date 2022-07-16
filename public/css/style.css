@@ -1,0 +1,120 @@
+*{
+    margin: 0px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 2%;
+    background-color: antiquewhite;
+    color: deepskyblue;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav li {
+    list-style: none;
+    margin: 15px 50px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: deepskyblue;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+}
+
+
+/* home css */
+#home{
+    padding: 2% 2%;
+}
+
+#homeHeading{
+    margin-bottom: 1%;
+}
+
+#homeContent{
+    margin-bottom: 1%;
+}
+
+#postTitle{
+    margin-bottom: 1%;
+}
+
+#postContent{
+    margin-bottom: 1%;
+    margin-top: 0.5%; 
+}
+
+/* about css */
+
+#about{
+    padding: 2% 2%;
+}
+
+/* css of contact */
+
+#contact{
+    padding: 2% 2%;
+}
+
+/* css of posts  */
+
+#posts{
+    padding: 2% 2%;
+}
+
+#postTitle{
+    margin-bottom: 1%;
+}
+/************* css of compose page **************/
+
+#compose{
+    padding: 1% 2%;
+}
+
+label{
+    padding: 1% 2%;
+}
+
+#title {
+    display: block;
+    width: 500px;
+    border-radius: 5px;
+    margin: 1% 2%;
+    border: 1px solid;
+}
+
+#post {
+    display: block;
+    height: 100px;
+    width: 500px;
+    border-radius: 5px;
+    margin: 1% 2%;
+}
+
+#publish {
+    padding: 1% 2%;
+    background: #7a7ae6;
+    color: white;
+    border-radius: 5px;
+    padding: 3px;
+    border-style: none;
+    height: 30px;
+    width: 60px;
+    margin-left: 50px;
+}

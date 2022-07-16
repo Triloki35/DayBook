@@ -1,0 +1,26 @@
+<%- include('partials/header'); -%>
+
+<section id="home">
+
+    <h1 id="homeHeading">Home</h1>
+    <p id="homeContent">
+        <%=HOMECONTENT%>
+    </p>
+
+    <% for(var i=0 ; i < POSTS.length ; i++ ){ %>
+
+        <h3 id="postTitile">
+            <%= POSTS[i].title %>
+        </h3>
+
+        <p id="postContent">
+            <%= POSTS[i].post.substring(0,25) + " ...." %>
+            <a href= "posts/<%= POSTS[i].title %>" > Read More </a>
+        </p>
+
+    <% }; %>
+
+</section>
+
+
+<%- include('partials/footer') %>
