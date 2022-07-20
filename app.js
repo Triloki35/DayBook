@@ -17,11 +17,10 @@ const  postSchema= new mongoose.Schema({
 
 const  Post = mongoose.model('Post', postSchema);
 
-const homeContent = "home Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum reprehenderit ipsum officia a nemo, ratione in sed, tempore molestias atque labore eaque fugit fugiat, repellendus consectetur obcaecati accusamus nihil voluptate.";
-const aboutContent = "about Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum reprehenderit ipsum officia a nemo, ratione in sed, tempore molestias atque labore eaque fugit fugiat, repellendus consectetur obcaecati accusamus nihil voluptate.";
-const contactContent = "contact Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum reprehenderit ipsum officia a nemo, ratione in sed, tempore molestias atque labore eaque fugit fugiat, repellendus consectetur obcaecati accusamus nihil voluptate.";
+const homeContent = "Welcome to DairyBook.";
+const aboutContent = "This is a daily journal web app . Techonolgy used for creating this web app are HTML , CSS , Bootstrap , Node.js and mongoDB cloud services(Atlas).";
+const contactContent = "";
 
-let posts = [];
 
 app.get("/", function (req, res) {
     Post.find({},function(err,foundPost){
@@ -49,44 +48,29 @@ app.get("/compose", function (req, res) {
 
 
 app.post("/compose", function (req, res) {
-    // var obj = {
-    //     title: req.body.title,
-    //     post: req.body.post
-    // }
-    // posts.push(obj);
-    // adding in db 
     const newpost = new Post({ 
-        title: req.body.title,
-        post:req.body.post
+        title: _.capitalize(req.body.title),
+        post: _.capitalize(req.body.post)
     });
+
+    console.log(req.body.post);
+    console.log(_.capitalize(req.body.post))
 
     newpost.save(function(err){
         if(!err)
         res.redirect("/");
     });
-    // Post.find(function(err,res){
-    //     if(err)
-    //     console.log(err);
-    //     else
-    //     console.log(res);
-    // })
 })
 
 
 app.get("/posts/:postname", function (req, res) {
 
-    // for (var i = 0; i < posts.length; i++) {
-
-    //     if (_.lowerCase(req.params.postname) === _.lowerCase(posts[i].title)) {
-    //         res.render("posts", { title: posts[i].title, post: posts[i].post });
-    //     }
-    // }
-
-    Post.find({title:req.params.postname},function(err,foundPost){
+    var titleTobesearched = _.capitalize(req.params.postname);
+    // console.log(titleTobesearched);
+    Post.find({title:titleTobesearched},function(err,foundPost){
         if(err)
         {
             // res.render("oops",{});
-            // res.redirect("/");
             console.log(err);
         }
         else
@@ -97,23 +81,22 @@ app.get("/posts/:postname", function (req, res) {
     })
 })
 
-
-app.post("/posts/:postname", function (req, res) {
-
-    Post.find({title:req.params.postname},function(err,foundPost){
+app.post("/search", function (req, res) {
+    // console.log(req);
+    var titleTobesearched = _.capitalize(req.body.searchTitle);
+    // console.log(titleTobesearched);
+    Post.find({title:titleTobesearched},function(err,foundPost){
         if(err)
         {
             // res.render("oops",{});
-            // res.redirect("/");
             console.log(err);
         }
         else
         {
-            // console.log(foundPost[0].post);
             res.render("posts", { title: foundPost[0].title, post: foundPost[0].post });
         }
+        
     })
-
 })
 
 

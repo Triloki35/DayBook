@@ -7,28 +7,32 @@ body{
     height: 100vh;
 }
 
-header{
+/* css of header */
+
+#logo{
+    margin-right: 14px;
+}
+
+#searchBar{
     display: flex;
-    justify-content: space-between;
-    padding: 1% 2%;
-    background-color: antiquewhite;
-    color: deepskyblue;
+    margin-right: 2%;
 }
 
-.nav {
-    display: flex;
-    justify-content: center;
+#searchBtn{
+    margin: 0% 1%;
 }
 
-.nav li {
-    list-style: none;
-    margin: 15px 50px;
-}
+@media screen and (max-width: 600px) {
+    #searchBar{
+        display: inline;
+        /* margin-right: 2%; */
+    }
+    #searchBtn{
+        margin: 0% 0%;
+    }
+  }
 
-.nav a {
-    text-decoration: none;
-    color: deepskyblue;
-}
+/* css of footer */
 
 footer {
     background-color: black;
@@ -37,27 +41,38 @@ footer {
     margin-top: auto;
 }
 
-
 /* home css */
 #home{
     padding: 2% 2%;
 }
 
 #homeHeading{
-    margin-bottom: 1%;
+    margin-bottom: 3%;
+    /* text-align: center; */
+    /* text-decoration: underline; */
 }
 
 #homeContent{
-    margin-bottom: 1%;
+    margin-bottom: 1.5%;
+    font-size: larger;
+}
+
+#postBox{
+    margin-top: 5%;
 }
 
 #postTitle{
-    margin-bottom: 1%;
+    /* margin-bottom: 1%; */
+    text-transform: capitalize;
+    /* color: cadetblue; */
 }
 
 #postContent{
     margin-bottom: 1%;
     margin-top: 0.5%; 
+    text-transform: capitalize;
+    color: slategrey;
+    /* font-style: oblique; */
 }
 
 /* about css */
@@ -69,13 +84,22 @@ footer {
 /* css of contact */
 
 #contact{
-    padding: 2% 2%;
+    padding: 6% 2%;
+    display: flex;
+    justify-content: center;
+}
+
+#opinionHeading{
+    text-align: center;
+    margin-top: 5%;
+    color: slategray;
 }
 
 /* css of posts  */
 
 #posts{
     padding: 2% 2%;
+    text-transform: capitalize;
 }
 
 #postTitle{
@@ -97,6 +121,7 @@ label{
     border-radius: 5px;
     margin: 1% 2%;
     border: 1px solid;
+    text-transform: capitalize;
 }
 
 #post {
@@ -105,16 +130,32 @@ label{
     width: 500px;
     border-radius: 5px;
     margin: 1% 2%;
+    text-transform: capitalize;
 }
 
-#publish {
-    padding: 1% 2%;
-    background: #7a7ae6;
-    color: white;
-    border-radius: 5px;
-    padding: 3px;
-    border-style: none;
-    height: 30px;
-    width: 60px;
-    margin-left: 50px;
+#publish{
+       /* background: #7a7ae6;
+       color: white; */
+       border-radius: 5px;
+       border-style: none;
+       height: 40px;
+       width: 80px;
+       margin-left: 26px;
+       margin-top: 17px;
 }
+
+
+@media screen and (max-width: 500px) {
+    #title {
+        width: 250px;
+    }
+    #post{
+        width: 250px;
+    }
+    #publish{
+        margin-left: 10px;
+    }
+  }
+
+
+
