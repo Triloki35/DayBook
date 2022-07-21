@@ -83,9 +83,9 @@ app.get("/posts/:postname", function (req, res) {
 
 app.post("/search", function (req, res) {
     // console.log(req);
-    var titleTobesearched = _.capitalize(req.body.searchTitle);
-    // console.log(titleTobesearched);
-    Post.find({title:titleTobesearched},function(err,foundPost){
+    var searchTitle = _.capitalize(req.body.searchTitle);
+    console.log(searchTitle);
+    Post.find({title:searchTitle},function(err,foundPost){
         if(err)
         {
             // res.render("oops",{});
